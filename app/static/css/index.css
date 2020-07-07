@@ -1,0 +1,9 @@
+ul{
+    list-style-type: none;
+}
+.panel{
+    height: 400px;
+}
+.panel-title{
+    text-align: center;
+}
