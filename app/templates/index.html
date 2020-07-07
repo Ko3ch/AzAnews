@@ -1,0 +1,93 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+{% block content%}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="panel">
+                <div class="panel-title" style="padding: 15px; color: white; text-align: center; background-color: #03071E;">
+                    <h3 >Business</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{macro.displaySources(business)}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel">
+                <div class="panel-title" style="padding: 15px; color: white; text-align: center; background-color: #370617;">
+                    <h3 >Technology</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{macro.displaySources(technology)}}
+                    </div>
+                </div>
+            </ul>
+        </div>
+        <div class="col-md-3">
+            <div class="panel">
+                <div class="panel-title" style="padding: 15px; color: white; text-align: center; background-color: #6A040F;">
+                    <h3 >Sports</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{macro.displaySources(sports)}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="panel">
+                <div class="panel-title" style="padding: 15px; color: white; text-align: center; background-color: #9D0208;">
+                    <h3 >Entertainment</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{macro.displaySources(entertainment)}}
+                    </ul>
+                </div>
+            </div>
+        </div>        
+    </div>
+</div>
+<div class="row">
+    <div class="container">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-title" style="padding: 15px; color: white; text-align: center; background-color: #E85D04;">
+                    <h3 >Science</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{macro.displaySources(science)}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-title" style="padding: 15px; color: white; text-align: center; background-color: #1B4332;">
+                    <h3 >Health</h3>
+                </div>
+                <div class="panel-body">
+                    <ul>
+                        {{macro.displaySources(health)}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock%}
+
