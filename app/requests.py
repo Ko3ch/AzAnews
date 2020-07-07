@@ -2,23 +2,19 @@ import urllib.request,json
 from .models import NewsSource,Article
 
 api_key = None
-sources_base_url = None
-source_articles_base_url = None
 
 def configure_request(app):
     '''
     function to get api_key and base_url values
     '''
-    global api_key,sources_base_url,source_articles_base_url
+    global api_key
     api_key = app.config['NEWS_API_KEY']
-    sources_base_url = app.config['NEWS_SOURCES_API_BASE_URL']
-    source_articles_base_url = app.config['NEWS_SOURCE_ARTICLES_BASE_URL']
 
 def get_sources(category):
     '''
     function to get news sources
     '''
-    get_sources_url = sources_base_url.format(category,api_key)
+    get_sources_url = 'http://newsapi.org/v2/sources?category={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(category)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -51,7 +47,7 @@ def get_source_articles(source):
     '''
     function that returns the articles of selected news source
     '''
-    get_source_articles_url = source_articles_base_url.format(source,api_key)
+    get_source_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(source)
 
     with urllib.request.urlopen(get_source_articles_url) as url:
         get_source_articles_data = url.read()
