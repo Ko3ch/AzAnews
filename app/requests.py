@@ -18,7 +18,7 @@ def get_sources(category):
     '''
     function to get news sources
     '''
-    get_sources_url = 'http://newsapi.org/v2/sources?category={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(category)
+    get_sources_url = sources_base_url.format(category,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -51,7 +51,7 @@ def get_source_articles(source):
     '''
     function that returns the articles of selected news source
     '''
-    get_source_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(source)
+    get_source_articles_url = source_articles_base_url.format(source,api_key)
 
     with urllib.request.urlopen(get_source_articles_url) as url:
         get_source_articles_data = url.read()
@@ -84,44 +84,3 @@ def process_articles(articles_list):
         articles_results.append(article_object)
 
     return articles_results         
-
-def get_article(id):
-
-    get_article_details_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(id)
-
-    with urllib.request.urlopen(get_article_details_url) as url:
-        article_details_data = url.read()
-        article_details_response = json.loads(article_details_data)
-
-        article_object = None
-
-        if article_details_response:
-            id = article_details_response.get('source.id')
-            author = article_details_response.get('author')
-            title = article_details_response.get('title')
-            description = article_details_response.get('description')
-            url = article_details_response.get('url')
-            imageUrl = article_details_response.get('urlToImage')
-            published = article_details_response.get('publishedAt')
-    
-            article_object = Article(id,author,title,description,url,imageUrl,published)
-
-        return article_object
-
-        
-def search_sources(source_name):
-    '''
-    function that searches for news sources based on name of the source
-    '''
-    search_source_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(source_name,api_key)
-    with urllib.request.urlopen(search_source_url) as url:
-        search_sources_data = url.read()
-        search_sources_response = json.loads(search_sources_data)
-
-        search_sources_results = None
-
-        if search_sources_response['articles']:
-            search_sources_list = search_sources_response['articles']
-            search_sources_results = process_results(search_sources_list)
-
-        return search_sources_results
