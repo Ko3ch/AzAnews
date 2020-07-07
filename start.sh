@@ -1,0 +1,4 @@
+export MOVIE_API_KEY=7f82d84e45d64550bacc0dd3433aae1a
+export SECRET_KEY=1234azanews
+
+python3.8 manage.py server
