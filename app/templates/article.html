@@ -7,19 +7,15 @@
 {% endblock %}
 
 {% block content%}
-<div class="container">
-    <div class="row">
-        <div class="col-md-3">
-            <h4 style="background-color: yellow;border: 2px solid brown; padding: 8px; text-align: center;">
-                <span style="font-size: 30px; color: red;">Top Stories</span></h4>
-        </div>
+<div class="row" style="margin-bottom: 20px;">
+    <div class="container">
+        <h3 style="color: brown;background-color: yellow; padding: 15px; border: 2px solid black;">TOP STORIES</h3>
     </div>
-    <div class="row">
-        <div class="flex-container" style="display: flex; flex-wrap: wrap; justify-content: space-evenly;">
-            <div class="card flex-item" style="width: 25rem;">
-                {{ macro.displayArticles(source_articles) }}
-            </div>
-        </div>
+</div>
+<div class="row" style="background-color: whitesmoke;">
+    <div class="container">
+            {{ macro.displayArticles(source_articles) }}
+    </div>
     </div>
 </div>
 {% endblock%}
