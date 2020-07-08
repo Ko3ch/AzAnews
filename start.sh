@@ -1,4 +1,3 @@
-export NEWS_API_KEY=7f82d84e45d64550bacc0dd3433aae1a
-export SECRET_KEY=1234azanews
-
+export NEWS_API_KEY=<NEWS_API_KEY>
+export SECRET_KEY=<SECRET_KEY>
 python3.8 manage.py server
