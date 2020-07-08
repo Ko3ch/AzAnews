@@ -8,12 +8,12 @@
 
 {% macro displayArticles(articles_list)%}
     {% for article in articles_list %}
-        <div class="card flex-item" style="width: 25rem;">
-            <img class="card-img-top" src="{{ article.urlToImage }}" alt="" style="max-width: 25rem;">
+        <div class="card" style="cursor: pointer; width: 50rem; border-left: 1px solid black; border-top: 3px solid brown; margin: 20px; padding: 10px;">
+            <img class="card-img-top" src="{{ article.urlToImage }}" alt="" style="max-width: 50rem;">
             <div class="card-body">
             <h4 class="card-title" style="font-weight: bolder;">{{ article.title }}</h4>
             <small style="color: sienna;">{{ article.publishedAt | truncate(13)}}</small>
-            <p class="card-text">{{ article.description }}</p>
+            <p style="font-weight: 500;" class="card-text">{{ article.description }}</p>
             <a href="{{ article.url }}">read more</a>
         </div>
     {% endfor%}
