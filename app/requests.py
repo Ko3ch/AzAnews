@@ -14,7 +14,7 @@ def get_sources(category):
     '''
     function to get news sources
     '''
-    get_sources_url = 'http://newsapi.org/v2/sources?category={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(category)
+    get_sources_url = 'http://newsapi.org/v2/sources?category={}&apiKey={}'.format(category,api_key)
 
     with urllib.request.urlopen(get_sources_url) as url:
         get_sources_data = url.read()
@@ -47,7 +47,7 @@ def get_source_articles(source):
     '''
     function that returns the articles of selected news source
     '''
-    get_source_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey=7f82d84e45d64550bacc0dd3433aae1a'.format(source)
+    get_source_articles_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(source,api_key)
 
     with urllib.request.urlopen(get_source_articles_url) as url:
         get_source_articles_data = url.read()
